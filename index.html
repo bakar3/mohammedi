@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلاب المعهد مطور ويب بوقطب</title>
+    <style>
+        body {
+            background-color: #0a599f;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 1rem;
+        }
+        .container.active {
+            display: flex;
+        }
+        h1, h2, h3 {
+            margin: 0.5rem 0;
+            line-height: 1.4;
+        }
+        h1 {
+            color: #fc6107;
+            font-size: 2.5rem;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: #ffffff;
+        }
+        h3 {
+            font-size: 1.5rem;
+            color: #d0f0ff;
+        }
+        p {
+            color: #e7fb0a;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .fireworks {
+            font-size: 3rem;
+            color: #ff5722;
+            animation: bounce 2s infinite;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 1rem;
+            background-color: #0cf7dc43;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+        button:hover {
+            background-color: #48f01a;
+        }
+        .question {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+            color: #f1eaeb;
+            line-height: 1.5;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.2rem;
+            }
+            .fireworks {
+                font-size: 2.5rem;
+            }
+            p, .question {
+                font-size: 1rem;
+            }
+            button {
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الصفحة الرئيسية -->
+    <div class="container active" id="content">
+        <div class="fireworks">💻💻💻</div>
+        <h1>طلاب المعهد الوطني المتخصص في التكوين المهني</h1>
+        <h2>الشهيد مباركي هاشمي - بوقطب</h2>
+        <h3>تخصص مطور ويب</h3>
+        <p>تمارين خوارزميات</p>
+        <div class="fireworks">💻💻💻</div>
+        <button onclick="showQuestions()">اضغط هنا</button>
+    </div>
+</body>
+<script>
+    // تعريف المحتوى الجديد
+    const questionsContent = `
+        <h1>أسئلة حول الخوارزميات</h1>
+        <div class="question">تمـــرين مهــــم جــــدا وبسيــــط</div>
+        <div class="question">selonباستخدام برنامج ألغو قم بإنشاء برنامج آلـــة حاسبـــة اعتمـــــــادا علــــى خاصيــــة</div>
+        <div class="question">
+            1. إدخال الرقم الأول من المستخدم<br>
+            2. اختيار نوع العملية (+, -, *, /)<br>
+            3. إدخال الرقم الثاني<br>
+            4. عرض النتيجة
+        </div>
+        <button onclick="goBack()">عودة</button>
+    `;
+
+    // عرض صفحة الأسئلة
+    function showQuestions() {
+        const contentDiv = document.getElementById('content');
+        contentDiv.innerHTML = questionsContent;
+    }
+
+    // العودة إلى الصفحة الرئيسية
+    function goBack() {
+        const contentDiv = document.getElementById('content');
+        contentDiv.innerHTML = `
+            <div class="fireworks">💻💻💻</div>
+            <h1>طلاب المعهد الوطني المتخصص في التكوين المهني</h1>
+            <h2>الشهيد مباركي هاشمي - بوقطب</h2>
+            <h3>تخصص مطور ويب</h3>
+            <p>تمارين خوارزميات</p>
+            <div class="fireworks">💻💻💻</div>
+            <button onclick="showQuestions()">المزيد من التفاصيل</button>
+        `;
+    }
+</script>
+</html>
